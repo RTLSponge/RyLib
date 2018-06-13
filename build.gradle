@@ -6,6 +6,36 @@ group = pluginGroup
 version = pluginVersion
 
 dependencies {
-compile 'org.spongepowered:spongeapi:7.0.0'}
+    compile 'org.spongepowered:spongeapi:7.0.0'
+    compile 'com.google.guava:guava:21.0'
+    compile 'com.google.guice:guice:4.0'
+    compile "io.reactivex.rxjava2:rxjava:2.1.14"
+
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+}
+
+// Reproducible Builds FTW
+tasks.withType(AbstractArchiveTask) {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+test {
+    // Enable JUnit 5 (Gradle 4.6+).
+    useJUnitPlatform()
+
+    // Always run tests, even when nothing changed.
+    dependsOn 'cleanTest'
+
+    reports {
+        html.enabled = true
+    }
+
+    // Show test results.
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
 
 sponge.plugin.id = pluginId
