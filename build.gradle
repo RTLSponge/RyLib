@@ -6,16 +6,15 @@ group = pluginGroup
 version = pluginVersion
 
 repositories {
-    maven { url 'https://jitpack.io' }
-
+    maven { url 'https://timboudreau.com/builds/plugin/repository/everything/'}
 }
 
 dependencies {
     compile 'org.spongepowered:spongeapi:7.0.0'
     compile 'com.google.guava:guava:21.0'
-    compile 'com.google.guice:guice:4.0'
+    compile 'com.google.inject:guice:4.1.0'
     compile 'io.reactivex.rxjava2:rxjava:2.1.14'
-    compile 'com.github.timboudreau:scopes:bc0c7d195b'
+    compile 'com.mastfrog:scopes:2.3.0'
 
     testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
     testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
