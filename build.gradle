@@ -5,11 +5,17 @@ plugins {
 group = pluginGroup
 version = pluginVersion
 
+repositories {
+    maven { url 'https://jitpack.io' }
+
+}
+
 dependencies {
     compile 'org.spongepowered:spongeapi:7.0.0'
     compile 'com.google.guava:guava:21.0'
     compile 'com.google.guice:guice:4.0'
-    compile "io.reactivex.rxjava2:rxjava:2.1.14"
+    compile 'io.reactivex.rxjava2:rxjava:2.1.14'
+    compile 'com.github.timboudreau:scopes:bc0c7d195b'
 
     testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
     testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
